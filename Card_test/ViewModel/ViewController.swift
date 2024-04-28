@@ -32,9 +32,10 @@ class ViewController: UIViewController {
               Int(sqrt(Double(number))) * Int(sqrt(Double(number))) == number
         else {
             if inputTextField.text == ""{
+                SharedManager.sharedInstance.showAlert("Input Filed Empty!", msg: "Please enter number", vc: self)
                 return
             }
-            SharedManager.sharedInstance.showAlert("Input Filed Empty!", msg: "Please enter  number", vc: self)
+            SharedManager.sharedInstance.showAlert("Not Vaild Number!", msg: "Please enter a valid square number.", vc: self)
             return
         }
         
@@ -52,11 +53,6 @@ class ViewController: UIViewController {
         gameOver = false
     }
     
-    func showAlert(message: String) {
-        let alert = UIAlertController(title: "Alert", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
-    }
 }
 
 
